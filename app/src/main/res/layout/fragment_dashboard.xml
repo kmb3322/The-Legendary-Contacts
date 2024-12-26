@@ -4,19 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextAlbumName"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPlaylist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="앨범명 입력"
-        android:layout_marginBottom="8dp"/>
+        android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/buttonAddTopster"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="내 탑스터에 추가"/>
 </LinearLayout>
