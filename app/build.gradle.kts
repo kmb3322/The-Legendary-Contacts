@@ -44,6 +44,7 @@ dependencies {
 
     // YouTube Player (오픈소스)
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0")
+    implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

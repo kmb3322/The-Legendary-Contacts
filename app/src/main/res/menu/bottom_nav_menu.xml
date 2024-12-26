@@ -9,11 +9,11 @@
     <item
         android:id="@+id/dashboard"
         android:icon="@android:drawable/ic_input_add"
-        android:title="탑스터 추가" />
+        android:title="음악 대결하기" />
 
     <item
         android:id="@+id/notifications"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="알림" />
+        android:title="내 탑스터" />
 
 </menu>

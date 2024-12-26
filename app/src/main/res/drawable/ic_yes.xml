@@ -1,0 +1,11 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 살짝 둥근 느낌의 체크 마크 -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M9.0,17.2 L4.8,13.0 c -0.4,-0.4 -1.0,-0.4 -1.4,0 l -0.7,0.7 c -0.4,0.4 -0.4,1.0 0,1.4 l 5.2,5.2 c 0.4,0.4 1.0,0.4 1.4,0 l 12.3,-12.3 c 0.4,-0.4 0.4,-1.0 0,-1.4 l -0.7,-0.7 c -0.4,-0.4 -1.0,-0.4 -1.4,0 z"/>
+</vector>
