@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:id="@+id/home"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="홈" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/dashboard"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="탑스터 추가" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/notifications"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="알림" />
 
 </menu>

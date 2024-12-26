@@ -1,35 +1,47 @@
 package com.example.thelegendarycontacts
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.thelegendarycontacts.databinding.ActivityMainBinding
+import androidx.fragment.app.Fragment
+import com.example.thelegendarycontacts.ui.DashboardFragment
+import com.example.thelegendarycontacts.ui.HomeFragment
+import com.example.thelegendarycontacts.ui.NotificationsFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 일반적인 방법으로 레이아웃 세팅
+        setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // 첫 화면은 HomeFragment 로
+        replaceFragment(HomeFragment())
 
-        val navView: BottomNavigationView = binding.navView
+        // bottomNavigationView를 가져와서 리스너 설정
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.home -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.dashboard -> {
+                    replaceFragment(DashboardFragment())
+                    true
+                }
+                R.id.notifications -> {
+                    replaceFragment(NotificationsFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView, fragment)
+            .commit()
     }
 }

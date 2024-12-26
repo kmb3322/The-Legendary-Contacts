@@ -1,42 +1,38 @@
-package com.example.thelegendarycontacts.ui.dashboard
+package com.example.thelegendarycontacts.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.thelegendarycontacts.databinding.FragmentDashboardBinding
+import com.example.thelegendarycontacts.R
 
 class DashboardFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
-
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+    ): View? {
+        return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val editTextAlbumName = view.findViewById<EditText>(R.id.editTextAlbumName)
+        val buttonAddTopster = view.findViewById<Button>(R.id.buttonAddTopster)
+
+        buttonAddTopster.setOnClickListener {
+            val albumName = editTextAlbumName.text.toString().trim()
+            if (albumName.isNotEmpty()) {
+                Toast.makeText(context, "내 탑스터에 [$albumName] 추가 완료", Toast.LENGTH_SHORT).show()
+                editTextAlbumName.text.clear()
+            } else {
+                Toast.makeText(context, "앨범명을 입력하세요", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
